@@ -20,16 +20,15 @@ export class Modal extends Component {
     }
   };
 
-  handleBackdropClick = e=>{
-    if(e.currentTarget===e.target){
-      this.props.onClose()
+  handleBackdropClick = e => {
+    if (e.currentTarget === e.target) {
+      this.props.onClose();
     }
-
-  }
+  };
   render() {
     return createPortal(
       <ModalOverlay onClick={this.handleBackdropClick}>
-        <ModalEl >{this.props.children}</ModalEl>
+        <ModalEl>{this.props.children}</ModalEl>
       </ModalOverlay>,
       modalRoot
     );

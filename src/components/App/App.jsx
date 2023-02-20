@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import { Modal } from 'components/Modal/Modal';
 import { SearchBar } from 'components/Searchbar/Searchbar';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
@@ -24,7 +23,7 @@ export class App extends Component {
     error: null,
     showModal: false,
     totalHits: 0,
-    tags:'',
+    tags: '',
   };
 
   async componentDidUpdate(_, prevState) {
@@ -71,16 +70,14 @@ export class App extends Component {
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
-
   };
 
   handleImageClick = index => {
     this.toggleModal();
     this.setState({
       largeImageURL: this.state.articles[index].largeImageURL,
-      tags: this.state.articles[index].tags
+      tags: this.state.articles[index].tags,
     });
-  
   };
 
   render() {
@@ -90,20 +87,19 @@ export class App extends Component {
     return (
       <>
         <>
-          <SearchBar onSearchFormSubmit={this.handleFormSubmit}/>
+          <SearchBar onSearchFormSubmit={this.handleFormSubmit} />
 
           {isLoading && <Loader />}
-           {error && (
+          {error && (
             <h1 style={{ color: 'grey', textAlign: 'center' }}>
               {error.message}
             </h1>
-          )} 
+          )}
 
           {imagesCount > 0 && (
             <ImageGallery
               articles={articles}
               onImageClick={this.handleImageClick}
-          
             />
           )}
 
@@ -119,12 +115,7 @@ export class App extends Component {
         <div>
           {showModal && (
             <Modal onClose={this.toggleModal}>
-              {
-                <img
-                  src={this.state.largeImageURL}
-                  alt={this.state.tags}
-                />
-              }
+              {<img src={this.state.largeImageURL} alt={this.state.tags} />}
             </Modal>
           )}
           <ToastContainer

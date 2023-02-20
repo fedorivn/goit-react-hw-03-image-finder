@@ -15,7 +15,6 @@ export class SearchBar extends Component {
     query: '',
   };
 
-  
   formSubmit = e => {
     e.preventDefault();
 
@@ -25,10 +24,10 @@ export class SearchBar extends Component {
     }
 
     this.props.onSearchFormSubmit(this.state.query);
-    this.setState({query: ''})
+    this.setState({ query: '' });
   };
 
-  changeSearchInput = e=> {
+  changeSearchInput = e => {
     this.setState({ query: e.target.value.toLowerCase() });
   };
 
@@ -36,12 +35,11 @@ export class SearchBar extends Component {
     return (
       <SearchBarStld>
         <SearchForm onSubmit={this.formSubmit}>
-          
           <SearchFormBtn type="submit">
             <SearchFormBtnLabel>Search</SearchFormBtnLabel>
-            <BiSearchAlt size={24} fill={'#4ab2d8'}/>
+            <BiSearchAlt size={24} fill={'#4ab2d8'} />
           </SearchFormBtn>
-          
+
           <SearchFormInput
             type="text"
             autocomplete="off"
