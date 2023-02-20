@@ -6,7 +6,7 @@ const loaderRoot = document.querySelector('#loader-root');
 export const Loader =()=>{
     return createPortal(
         <ModalOverlay>
-            <Circles color="#ff0095" height={300} width={300} />
+            <Circles color="#4ab2d8" height={300} width={300} />
         </ModalOverlay>,
         loaderRoot
     )
