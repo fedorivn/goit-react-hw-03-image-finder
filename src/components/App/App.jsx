@@ -78,6 +78,7 @@ export class App extends Component {
     this.toggleModal();
     this.setState({
       largeImageURL: this.state.articles[index].largeImageURL,
+      tags: this.state.articles[index].tags
     });
   
   };
@@ -102,6 +103,7 @@ export class App extends Component {
             <ImageGallery
               articles={articles}
               onImageClick={this.handleImageClick}
+          
             />
           )}
 
