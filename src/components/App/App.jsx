@@ -71,7 +71,7 @@ export class App extends Component {
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
-    console.log(this.state.largeImageURL);
+
   };
 
   handleImageClick = index => {
